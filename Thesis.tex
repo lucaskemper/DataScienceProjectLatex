@@ -1,7 +1,7 @@
-\documentclass[a4paper, 12pt, oneside]{Thesis}  
+\documentclass[a4paper, 12pt, oneside]{Thesis}
 
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 
 
 \usepackage{amsthm}
@@ -42,7 +42,7 @@ urlcolor=blue
 \addtolength{\topmargin}{-0.5cm}
 \addtolength{\textwidth}{0cm}
 \addtolength{\textheight}{1.5cm}
-\renewcommand{\baselinestretch}{1.5} 
+\renewcommand{\baselinestretch}{1.5}
 
 %\bibliographystyle{econometrica}
 %\bibliographystyle{natbib}
@@ -52,18 +52,17 @@ urlcolor=blue
 \frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
 
 % Set up the Title Page
-\title  {TITEL}
-\authors  {\texorpdfstring
-            {\href{EMAIL@unil.ch}{NAME}}
-            {NAME}
-            }
-\addresses  {\groupname\\\univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
-%\addresses  {\groupname\\\deptname\\\univname}
-\date       {January 1, 2020\\
+\title{Quantitative Portfolio Risk Analysis System: A Framework for Market Regime Detection and Risk Assessment in Semiconductor Equities}
+\authors{\texorpdfstring
+        {\href{EMAIL@unil.ch}{Lucas Kemper, Antonio Schoeffel}}
+        {Lucas Kemper, Antonio Schoeffel}
+        }
+\addresses{\groupname\\\deptname\\\univname}
+\date{December 2023\\
 \vspace*{3cm}
-\includegraphics[trim= 0.1cm 0cm 0cm 0cm,clip,scale=1 ]{logoHEC.jpg}
+\includegraphics[trim= 0.1cm 0cm 0cm 0cm,clip,scale=1]{logoHEC.jpg}
 \hfill
-\includegraphics[trim= 0.1cm 0cm 0cm 0cm,clip,scale=1 ]{logoUNIL.jpg}
+\includegraphics[trim= 0.1cm 0cm 0cm 0cm,clip,scale=1]{logoUNIL.jpg}
 }
 
 
@@ -87,23 +86,23 @@ urlcolor=blue
 
 I, NAME, declare that this thesis titled, `TITLE' and the work presented in it are my own. I confirm that:
 
-\begin{itemize} 
+\begin{itemize}
 \item[\tiny{$\blacksquare$}] This work was done wholly or mainly while I worked for XYZ.
- 
+
 \item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, this is always clearly attributed.
- 
+
 \item[\tiny{$\blacksquare$}] Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
- 
+
 \item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
- 
+
 \item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.
 \\
 \end{itemize}
- 
- 
+
+
 Signed:\\
 \rule[1em]{25em}{0.5pt}  % This prints a line for the signature
- 
+
 Date:\\
 \rule[1em]{25em}{0.5pt}  % This prints a line to write the date
 }
@@ -116,8 +115,9 @@ Date:\\
 \abstract{
 \addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-Thesis abstract written here. Max $\frac{1}{2}$ of a page, both in Englisch \& French.\ldots
+This research presents a comprehensive quantitative framework for analyzing portfolio risk in the semiconductor sector, with particular emphasis on regime detection methodologies and Monte Carlo simulations incorporating heavy-tailed distributions. The system implements sophisticated statistical approaches for risk assessment, including Value at Risk (VaR) and Expected Shortfall (ES) calculations, while accounting for regime-dependent volatility dynamics.
 
+Current implementation status includes working data pipeline, Monte Carlo simulation, and regime detection components, with risk analysis under active development and planned improvements for visualization.
 }
 
 \clearpage  % Abstract ended, start a new page
@@ -157,19 +157,73 @@ The executive summary should go here. Write about 2 pages\ldots
 \mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
 \pagestyle{fancy}  % Return the page headers back to the "fancy" style
 
-% Include the chapters of the thesis, as separate files
-% Just uncomment the lines as you write the chapters
+% Part 1: Statistical Foundations and Methodology
+\part{Statistical Foundations and Methodology}
 
-\input{./Chapters/Chapter1} %
+\chapter{Introduction}
+\label{ch:introduction}
+% Problem statement, objectives, literature review
+\input{./Chapters/Chapter1}
 
-%\input{./Chapters/Chapter2} %
-What follows is a reference:
-\cite{merton1973theory}
+\chapter{Theoretical Framework}
+\label{ch:theoretical}
+% HMM, Monte Carlo, GARCH, Risk metrics
+\input{./Chapters/Chapter2}
 
+\chapter{Data and Implementation}
+\label{ch:data}
+% Data preprocessing, portfolio construction
+\input{./Chapters/Chapter3}
+
+% Part 2: Empirical Analysis
+\part{Empirical Analysis}
+
+\chapter{Market Regime Analysis}
+\label{ch:regime}
+% Three-state volatility regime detection
+\input{./Chapters/Chapter4}
+
+\chapter{Risk Management Results}
+\label{ch:results}
+% Portfolio performance metrics
+\input{./Chapters/Chapter5}
+
+\chapter{Monte Carlo Validation}
+\label{ch:validation}
+
+% Distribution fitting results
+\input{./Chapters/Chapter6}
+
+\chapter{Conclusion}
+\label{ch:conclusion}
+% Key findings summary
+\input{./Chapters/Chapter7}
+
+\chapter{Implementation Status}
+\label{ch:status}
+
+\section{Project Components}
+\begin{table}[h]
+\begin{tabular}{lll}
+\hline
+Component & Status & Notes \\
+\hline
+Data Pipeline & Complete & Core functionality implemented \\
+Monte Carlo & Complete & Module works as expected \\
+Visualization & In Progress & Planned improvements \\
+Signals & Pending & Development not started \\
+Risk Analysis & In Progress & Under active development \\
+Regime Detection & Complete & Core algorithms implemented \\
+\hline
+\end{tabular}
+\caption{Current Implementation Status (as of v0.3)}
+\label{tab:status}
+\end{table}
 
 %% ----------------------------------------------------------------
 \label{Bibliography}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plainnat}
 \bibliography{bibliography}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage\newpage
@@ -181,23 +235,23 @@ What follows is a reference:
 \end{center}
 
 \begin{center}
-{ 
+{
 \begin{tabular}{c|cc|cc}
-& \multicolumn{4}{c}{PML2} \\ 
-& \multicolumn{2}{c}{$T=25$} & \multicolumn{2}{c}{$T=100$} \\ 
-True parameters & $a=1$ & $b=1$ & $a=1$ & $b=1$ \\ 
-Mean & 0.996 & 0.915 & 0.994 & 0.956 \\ 
-STD & 0.567 & 0.249 & 0.401 & 0.177 \\ 
-min & 0.001 & 0.001 & 0.001 & 0.331 \\ 
-max & 4.464 & 2.206 & 2.848 & 1.619 \\ 
-RMSE & 0.567 & 0.263 & 0.401 & 0.182 \\[+2ex] 
-& \multicolumn{4}{c}{QGPML2} \\ 
-& \multicolumn{2}{c}{$T=25$} & \multicolumn{2}{c}{$T=100$} \\ 
-True parameters & $a=1$ & $b=1$ & $a=1$ & $b=1$ \\ 
-Mean & 0.997 & 0.917 & 0.998 & 0.957 \\ 
-STD & 0.552 & 0.247 & 0.393 & 0.176 \\ 
-min & 0.001 & 0.001 & 0.001 & 0.330 \\ 
-max & 3.880 & 2.200 & 2.543 & 1.641 \\ 
+& \multicolumn{4}{c}{PML2} \\
+& \multicolumn{2}{c}{$T=25$} & \multicolumn{2}{c}{$T=100$} \\
+True parameters & $a=1$ & $b=1$ & $a=1$ & $b=1$ \\
+Mean & 0.996 & 0.915 & 0.994 & 0.956 \\
+STD & 0.567 & 0.249 & 0.401 & 0.177 \\
+min & 0.001 & 0.001 & 0.001 & 0.331 \\
+max & 4.464 & 2.206 & 2.848 & 1.619 \\
+RMSE & 0.567 & 0.263 & 0.401 & 0.182 \\[+2ex]
+& \multicolumn{4}{c}{QGPML2} \\
+& \multicolumn{2}{c}{$T=25$} & \multicolumn{2}{c}{$T=100$} \\
+True parameters & $a=1$ & $b=1$ & $a=1$ & $b=1$ \\
+Mean & 0.997 & 0.917 & 0.998 & 0.957 \\
+STD & 0.552 & 0.247 & 0.393 & 0.176 \\
+min & 0.001 & 0.001 & 0.001 & 0.330 \\
+max & 3.880 & 2.200 & 2.543 & 1.641 \\
 $\Delta$RMSE ($\%$) & 2.606 & 0.937 & 2.193 & 0.728%
 \end{tabular}
 }
